@@ -61,6 +61,26 @@ Shows AI-powered workflows integrating VS Code's Language Models:
 - Secondary AI processing for summarization
 - State management across multiple AI calls
 
+### 🔹 **ReactAgent with Tools** (`codeartemis.reactAgent`)
+**NEW**: Advanced AI agent that can use tools to solve complex problems:
+- **File Operations**: Read/write files, parse YAML, extract code blocks
+- **User Interaction**: Get input, open file dialogs, display results
+- **Terminal Integration**: Execute commands and build processes
+- **Intelligent Problem Solving**: Uses tools autonomously to accomplish tasks
+
+### 🔹 **OpenAPI Workflow** (`codeartemis.openapiWorkflow`)
+**NEW**: Sophisticated workflow for API specification processing:
+- Compare canonical vs user OpenAPI specifications
+- Generate TypeScript mapper code automatically
+- Use AI reasoning to handle API differences
+- Complete end-to-end code generation pipeline
+
+### 🔹 **Diagnostic Tools**
+**NEW**: Built-in testing and troubleshooting commands:
+- **Test VS Code Language Model**: Verify GitHub Copilot integration
+- **Test ReactAgent Basic Functionality**: Validate ReactAgent setup
+- Comprehensive error reporting and debugging
+
 ### 🔹 **Extensible Framework**
 Ready-to-extend patterns for:
 - OpenAPI specification comparison
@@ -107,6 +127,17 @@ npm run watch
 
 ## 🏃‍♂️ How to Run
 
+### ⚡ Quick Start - Test Your Setup
+**RECOMMENDED FIRST STEP**: Before trying advanced features, verify your setup:
+
+1. **Open Command Palette**: `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+2. **Run**: `Test VS Code Language Model` 
+   - Verifies GitHub Copilot is working
+   - Shows available AI models
+3. **Then Run**: `Test ReactAgent Basic Functionality`
+   - Validates ReactAgent and tools integration
+   - Ensures everything is working correctly
+
 ### Accessing Commands
 1. **Open Command Palette**: `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
 2. **Type command name** (see below)
@@ -114,12 +145,24 @@ npm run watch
 
 ### Available Commands
 
-#### 🔸 **"LangGraph Demo"**
+#### � **Testing & Diagnostics**
+##### �🔸 **"Test VS Code Language Model"** ⭐ **START HERE**
+- **Purpose**: Verify GitHub Copilot integration
+- **What it does**: Tests direct VS Code Language Model API
+- **Use when**: First time setup or troubleshooting issues
+
+##### 🔸 **"Test ReactAgent Basic Functionality"** ⭐ **SECOND STEP**  
+- **Purpose**: Validate ReactAgent setup
+- **What it does**: Tests ReactAgent with tools integration
+- **Use when**: After VS Code LM test passes, before complex workflows
+
+#### 🚀 **Core Features**
+##### 🔸 **"LangGraph Demo"**
 - **Purpose**: Basic workflow demonstration
 - **What it does**: Executes a 3-step state-managed workflow
 - **Output**: Step-by-step execution log in "LangGraph Demo" output channel
 
-#### 🔸 **"AI Workflow Demo"**  
+##### 🔸 **"AI Workflow Demo"**  
 - **Purpose**: AI-powered workflow demonstration
 - **What it does**: 
   1. Prompts for your question
@@ -128,21 +171,92 @@ npm run watch
   4. Displays full workflow results
 - **Output**: Complete interaction log in "AI Workflow" output channel
 
+#### 🛠️ **Advanced Features**
+##### 🔸 **"ReactAgent with Tools Demo"** 
+- **Purpose**: Interactive AI agent with tool capabilities
+- **What it does**: 
+  1. Ask questions like "Read the canonical-openapi.yaml and explain it"
+  2. Agent automatically uses appropriate tools (file reading, parsing, etc.)
+  3. Provides intelligent responses based on tool results
+- **Output**: Tool usage and AI responses in "ReactAgent Demo" output channel
+
+##### 🔸 **"OpenAPI ReactAgent Workflow"**
+- **Purpose**: Complete OpenAPI specification processing
+- **What it does**: 
+  1. Reads canonical OpenAPI spec
+  2. Prompts for user spec selection
+  3. Compares specifications intelligently
+  4. Generates TypeScript mapper code
+  5. Writes generated code to files
+- **Output**: Complete workflow log in "OpenAPI Workflow" output channel
+
 ### Viewing Results
 1. **Open Output Panel**: `View → Output` or `Cmd+Shift+U`
-2. **Select Channel**: Choose "LangGraph Demo" or "AI Workflow" from dropdown
+2. **Select Channel**: Choose appropriate channel from dropdown:
+   - "ReactAgent Demo" for tool-based workflows
+   - "OpenAPI Workflow" for specification processing
+   - "LangGraph Demo" for basic workflows
+   - "AI Workflow" for simple AI interactions
 3. **Review Results**: See step-by-step workflow execution and AI responses
 
 ### Example Usage
 ```
 1. Press Cmd+Shift+P
+2. Type "Test ReactAgent Basic Functionality"
+3. Verify setup is working correctly
+4. Try "ReactAgent with Tools Demo"
+5. Enter question: "Read the canonical-openapi.yaml and explain its structure"
+6. Watch the workflow execute
+7. View results in Output → ReactAgent Demo
+```
+
+## 🆕 What's New in This Version
+
+### ReactAgent Integration
+- **Custom LLM Proxy**: `VSCodelmChat` class bridges LangChain with VS Code's Language Model API
+- **Tool Suite**: 7 specialized tools for file operations, user interaction, and terminal commands
+- **Advanced Workflows**: ReactAgent can now solve complex problems using tools autonomously
+
+### New Commands Added
+- `Test VS Code Language Model` - Direct API testing and diagnostics
+- `Test ReactAgent Basic Functionality` - Validates ReactAgent setup and tool integration  
+- `ReactAgent with Tools Demo` - Interactive agent with full tool capabilities
+- `OpenAPI ReactAgent Workflow` - Complete API specification processing pipeline
+
+### Enhanced Error Handling
+- Comprehensive error reporting and debugging
+- Step-by-step diagnostic commands
+- Better user feedback and troubleshooting guidance
+
+### Improved Architecture
+- Tool-first design enabling AI to interact with VS Code environment
+- Separation of concerns between LLM wrapper and workflow orchestration
+- Extensible framework for adding new tools and capabilities
+
+### Key Technical Improvements
+- **bindTools Method**: Fixed ReactAgent compatibility with VS Code Language Models
+- **Async Iterator Handling**: Robust error handling for VS Code API responses
+- **Diagnostic Tools**: Built-in testing to verify setup and identify issues
+- **Enhanced Debugging**: Detailed logging and error reporting throughout the system
 2. Type "AI Workflow Demo"
 3. Enter question: "Explain TypeScript generics"
 4. Watch the workflow execute
 5. View results in Output → AI Workflow
 ```
 
-## 📚 Tech Stack
+## � Troubleshooting
+
+If you encounter any issues:
+
+1. **Start with basic testing**: Run `Test VS Code Language Model` command first to verify your GitHub Copilot integration
+2. **Test ReactAgent functionality**: Use `Test ReactAgent Basic Functionality` to validate the complete system
+3. **Check the Output panel**: View "AI Workflow" channel for detailed logs
+4. **Common issues**:
+   - Ensure GitHub Copilot is enabled and authenticated
+   - Verify VS Code is version 1.104.0 or later
+   - Check that the extension is properly activated
+
+## �📚 Tech Stack
 
 - **[LangGraph](https://github.com/langchain-ai/langgraph)** - Workflow orchestration and state management
 - **[LangChain Core](https://github.com/langchain-ai/langchainjs)** - AI application framework

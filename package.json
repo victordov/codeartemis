@@ -24,6 +24,22 @@
       {
         "command": "codeartemis.aiWorkflow",
         "title": "AI Workflow Demo"
+      },
+      {
+        "command": "codeartemis.testVSCodeLM",
+        "title": "Test VS Code Language Model"
+      },
+      {
+        "command": "codeartemis.testReactAgent",
+        "title": "Test ReactAgent Basic Functionality"
+      },
+      {
+        "command": "codeartemis.reactAgent",
+        "title": "ReactAgent with Tools Demo"
+      },
+      {
+        "command": "codeartemis.openapiWorkflow",
+        "title": "OpenAPI ReactAgent Workflow"
       }
     ]
   },
